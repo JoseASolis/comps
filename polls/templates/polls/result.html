@@ -1,0 +1,90 @@
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" type = "text/css" href = "bootstrap/css/bootstrap.min.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Bienvenido <?php echo $name ?> </title>
+</head>
+<body>
+
+<div class="container-fluid">
+
+    <div class="panel panel-info">
+        <div class="panel-heading" align="center">
+            <h1>Bienvenido <?php echo $name ?> </h1>
+
+        </div>
+        <div class="panel-body"align="center">
+            <div class="row">
+            <h2>Te hemos registrado con los siguientes datos: </h2>
+            </div>
+            <div class="row">
+                <h3>Nombre: <?php echo $name?> </h3>
+            </div>
+            <div class="row">
+                <h3>Apellidos : <?php echo $lastname1." ".$lastname2?> </h3>
+            </div>
+            <div class="row">
+                <h3>Sexo :<?php
+                    if ($sexo== 'M')
+                    {
+                        echo " Masculino";
+                    }
+                    else
+                    {
+                        echo " Femenino";
+                    }
+                    ?> </h3>
+            </div>
+            <div class="row">
+                <h3>Fecha de Nacimiento : <?php echo $bday?> </h3>
+            </div>
+            <div class="row">
+                <h3>Estado de Nacimiento : <?php echo $state?> </h3>
+            </div>
+            <div class="row">
+                <h3>Municipio de Nacimiento : <?php echo $city?> </h3>
+            </div>
+            <div class="row">
+                <h3>Nombre de Usuario : <?php echo $user?> </h3>
+
+            </div>
+            <div class="row">
+                <h3>Contraseña: <?php echo $pass?> </h3>
+            </div>
+            <div class="row">
+                <h3>E-mail : <?php echo $mail1?> </h3>
+
+            </div>
+            <div class="row">
+                <h3>Telefono : <?php echo $pn?> </h3>
+
+            </div>
+            <div class="row">
+                <h3>Codigo Postal : <?php echo $cp?> </h3>
+            </div>
+            <div class="row">
+                <h3>Idiomas : <?php
+                    $s = "SELECT id_idioma FROM persona_idiomas WHERE id_persona = $last_id";
+
+                    $data = mysqli_query($conn,$s);
+                    while ($row = mysqli_fetch_array($data)) {
+                        $d =$row['id_idioma'];
+                        $lan = mysqli_query($conn,"SELECT idioma FROM idioma WHERE id_idioma=$d");
+                        while($row = mysqli_fetch_array($lan))
+                        {
+                            echo $row['idioma'].",";
+                        }
+                } ?> </h3>
+            </div>
+
+
+        </div>
+
+
+    </div>
+</div>
+
+
+</body>
+</html>

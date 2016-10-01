@@ -1,0 +1,74 @@
+{% load staticfiles %}
+<html>
+<head>
+    <title>Formulario</title>
+    <meta charset="UTF-8">
+   <link rel = "stylesheet" type = "text/css" href = "{% static 'bootstrap/css/bootstrap.min.css' %}">
+    <link rel = "stylesheet" type = "text/css" href = "{% static 'style.css' %}">
+     <link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
+     <link rel="stylesheet" href="{% static 'jquery/jquery-ui.css' %}">
+     <script src="{% static 'jquery/jquery-1.12.4.js' %}"></script>
+     <script src="{% static 'jquery/jquery-ui.js' %}"></script>
+
+     <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    $(".checkbox").click(function(){
+        $(this).toggleClass('checked')
+    });
+
+</script>
+ </head>
+ <body>
+ <div class="container-fluid">
+     <form action="{% url 'polls:createzip'%}" method="post">
+         {% csrf_token %}
+         <div class= "panel panel-info">
+             <div class= "panel-heading">
+                 <h1 class="display-1">
+                     Formulario #1
+                 </h1>
+             </div>
+             <div class ="panel-body">
+                 <div class="row">
+
+                             <div class="col-md-4">
+                                 <label for="Java">
+                                     <input id="Java" type="checkbox" value=0 name = "comps" />
+                                     <img src="{% static 'images/java.png' %}" alt="Google Logo" title="Java"class="img-responsive" />
+                                 </label>
+                         </div>
+                     <div class="col-md-4">
+                         <label for="c">
+                             <input id="c" type="checkbox" value=1 name = "comps"/>
+                             <img src="{% static 'images/c.png' %}" alt="Google Logo" title="c" class="img-responsive" />
+                         </label>
+                         </div>
+
+                     <div class="col-md-4">
+                         <label for="cpp">
+                             <input id="cpp" type="checkbox" value=2 name = "comps"/>
+                             <img src="{% static 'images/cpp.jpg' %}" alt="Google Logo" title="cpp"class="img-responsive" />
+                         </label>
+                         </div>
+                 </div>
+
+                 <div class="row">
+                     <div class="col-md-4">
+                         <label for="all">
+                             <input id="all" type="checkbox" value=3 name = "comps"/>
+                             <img src="{% static 'images/all.png' %}" alt="Google Logo" title="all"class="img-responsive" />
+                         </label>
+                     </div>
+                     <input type="submit" value="submit">
+
+
+                 </div>
+
+
+                 </div>
+             </div>
+
+     </form>
+ </div>
+ </body>
+ </html>

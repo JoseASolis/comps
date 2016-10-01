@@ -1,0 +1,11 @@
+.checkbox{
+    width: 23px;
+    height: 21px;
+    background: transparent url(http://i.stack.imgur.com/S4p2R.png ) no-repeat 0 50%
+}
+.checked{
+    background: transparent url(http://i.stack.imgur.com/S4p2R.png ) no-repeat 80% 50%
+}
+img {
+    width: 20%;
+}
